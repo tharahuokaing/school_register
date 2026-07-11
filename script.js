@@ -1,12 +1,11 @@
-document.getElementById('registerForm').addEventListener('submit', function(event) {
+document.getElementById('registerForm').addEventListener('submit', (event) => {
     event.preventDefault(); // Stop standard browser page-reload behavior
 
-    // Grab field elements and values
+    // Grab field values directly
     const fullName = document.getElementById('fullName').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const password = document.getElementById('password').value;
-    const alertBox = document.getElementById('formAlert');
 
     // Basic Form Validation Checks
     if (!fullName || !email || !phone || !password) {
@@ -22,21 +21,30 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     // Success Simulation Block
     showAlert('ការចុះឈ្មោះបានជោគជ័យ! ប្រព័ន្ធកំពុងបញ្ជូនលោកអ្នកទៅកាន់ទំព័រពិត...', 'success');
 
-    // Simulate database network delay, then route to login or core homepage
+    // Simulate database network delay, then route to login homepage
     setTimeout(() => {
-        window.location.href = 'https://tharahuokaing.github.io/school_login/'; 
+        // .replace() prevents the user from hitting "Back" and getting stuck on the register page
+        window.location.replace('https://tharahuokaing.github.io/school_login/'); 
     }, 2000);
 });
 
-// Helper Function to cleanly render Alert States
+/**
+ * Helper Function to cleanly render Alert States
+ * @param {string} message - The text to display
+ * @param {'error' | 'success'} type - The type of alert
+ */
 function showAlert(message, type) {
     const alertBox = document.getElementById('formAlert');
+    
     alertBox.textContent = message;
+    
+    // Reset classes using modern syntax
     alertBox.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
 
-    if (type === 'error') {
-        alertBox.classList.add('bg-red-100', 'text-red-700');
-    } else if (type === 'success') {
-        alertBox.classList.add('bg-green-100', 'text-green-700');
-    }
+    // Toggle styling based on type
+    const isError = type === 'error';
+    alertBox.classList.add(
+        isError ? 'bg-red-100' : 'bg-green-100',
+        isError ? 'text-red-700' : 'text-green-700'
+    );
 }
