@@ -24,7 +24,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
 
     // Simulate database network delay, then route to login or core homepage
     setTimeout(() => {
-        window.location.href = 'login.html'; 
+        window.location.href = 'https://tharahuokaing.github.io/school_login/'; 
     }, 2000);
 });
 
