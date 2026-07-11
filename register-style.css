@@ -1,0 +1,16 @@
+/* Custom Styling Extensions */
+@import url('https://fonts.googleapis.com/css2?family=Kantumruuy+Pro:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Kantumruuy Pro', sans-serif;
+}
+
+/* Pulse animation on successful loading placeholder states */
+.loading-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}
