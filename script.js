@@ -19,7 +19,7 @@ document.getElementById('registerForm').addEventListener('submit', (event) => {
     }
 
     // Success Simulation Block
-    showAlert('ការចុះឈ្មោះបានជោគជ័យ! ប្រព័ន្ធកំពុងបញ្ជូនលោកអ្នកទៅកាន់ទំព័រពិត...', 'success');
+    showAlert('ការចុះឈ្មោះបានជោគជ័យ! ប្រព័ន្ធកំពុងបញ្ជូនលោកអ្នកទៅកាន់ទំព័រ...', 'success');
 
     // Simulate database network delay, then route to login homepage
     setTimeout(() => {
